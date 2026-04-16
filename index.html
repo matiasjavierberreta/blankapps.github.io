@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blank Launcher</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray: #aaaaaa;
+      --subtle: #444444;
+    }
+
+    html, body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 24px;
+    }
+
+    .container {
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .brand {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      margin-bottom: 64px;
+    }
+
+    .clock {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(64px, 18vw, 96px);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 8px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .date {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray);
+      letter-spacing: 0.05em;
+      margin-bottom: 80px;
+    }
+
+    .tagline {
+      font-size: clamp(22px, 5vw, 30px);
+      font-weight: 300;
+      line-height: 1.3;
+      color: var(--white);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 56px;
+      max-width: 340px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .download {
+      display: inline-block;
+      border: 1px solid var(--subtle);
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .download:hover {
+      border-color: var(--white);
+    }
+
+    .features {
+      margin-top: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    .feature {
+      padding: 24px 0;
+      border-bottom: 1px solid #1a1a1a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    .feature:nth-child(1) { animation-delay: 0.8s; }
+    .feature:nth-child(2) { animation-delay: 1.0s; }
+    .feature:nth-child(3) { animation-delay: 1.2s; }
+    .feature:nth-child(4) { animation-delay: 1.4s; }
+
+    .feature-text {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray);
+    }
+
+    .feature-value {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--subtle);
+      letter-spacing: 0.1em;
+    }
+
+    .footer {
+      margin-top: 80px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--subtle);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="brand">Blank Apps</div>
+
+    <div class="clock" id="clock">00:00</div>
+    <div class="date" id="date">loading</div>
+
+    <div class="tagline">Your screen.<br>No noise.</div>
+    <p class="sub">A minimalist Android launcher. Black screen, clock, your apps. Nothing competing for your attention.</p>
+
+    <a class="download" href="https://play.google.com/store/apps/details?id=com.blanklauncher.app" target="_blank">
+      Get it on Android
+    </a>
+
+    <div class="features">
+      <div class="feature">
+        <span class="feature-text">No icons. No widgets. No badges.</span>
+        <span class="feature-value">home</span>
+      </div>
+      <div class="feature">
+        <span class="feature-text">10 second pause on distraction apps.</span>
+        <span class="feature-value">friction</span>
+      </div>
+      <div class="feature">
+        <span class="feature-text">Pure black. OLED friendly.</span>
+        <span class="feature-value">display</span>
+      </div>
+      <div class="feature">
+        <span class="feature-text">No ads. No tracking. No noise.</span>
+        <span class="feature-value">always</span>
+      </div>
+    </div>
+
+    <div class="footer">© 2026 Blank Apps</div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      document.getElementById('clock').textContent = h + ':' + m;
+
+      const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      const d = days[now.getDay()];
+      const mo = months[now.getMonth()];
+      const date = now.getDate();
+      document.getElementById('date').textContent = d + ', ' + mo + ' ' + date;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
